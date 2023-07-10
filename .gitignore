@@ -3,3 +3,5 @@
 /Packages
 /Temp
 /UserSettings
+*.csproj
+*.sln
