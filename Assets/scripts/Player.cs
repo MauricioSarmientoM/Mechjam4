@@ -51,3 +51,55 @@ public class Player : MonoBehaviour
 
     }
 }
+
+/**
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    Rigidbody rb;
+    Vector2 inputMov;
+    Vector2 inputRot;
+    public float velCaminata = 10f;
+    public float velCorrer = 20f;
+    public float mouseSensivity = 1;
+    Transform cam;
+    float rotX;
+    
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        cam = transform.GetChild(0);
+        rotX = cam.eulerAngles.x;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //Leemos el input
+        inputMov.x = Input.GetAxis("Horizontal");
+        inputMov.y = Input.GetAxis("Vertical");
+
+        inputRot.x = Input.GetAxis("Mouse X") * mouseSensivity;
+        inputRot.y = Input.GetAxis("Mouse Y") * mouseSensivity;
+    }
+
+    public void FixedUpdate()
+    { //Usamos ese input para movernos y girar
+        float vel = Input.GetKey(KeyCode.LeftShift) ? velCorrer : velCaminata;
+
+        rb.velocity = 
+            transform.forward * vel * inputMov.y    //Movernos hacia atrás y adelante
+            + transform.right * vel * inputMov.x    //Movernos hacia los costados
+            + new Vector3 (0, rb.velocity.y, 0);    //Permitir que la gravedad haga efecto
+
+        transform.rotation *= Quaternion.Euler(0, inputRot.x, 0);  //Rotar horizontal
+
+        rotX -= inputRot.y;
+        rotX = Mathf.Clamp(rotX, -50, 50);
+        cam.localRotation = Quaternion.Euler(rotX, 0, 0);
+    }
+}
+**/
