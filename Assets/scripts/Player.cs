@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public Rigidbody rigid;
@@ -6,6 +7,10 @@ public class Player : MonoBehaviour
     public float maxSpeed;
     public Vector3 movement;
     public static Player player;
+    [Header("UI")]
+    public Image healthGauge;
+    public Image shieldGauge;
+    public Image energyGauge;
     // Start is called before the first frame update
     void Start()
     {

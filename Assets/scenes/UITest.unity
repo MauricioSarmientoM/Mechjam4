@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0030101622, g: 0.0040730955, b: 0.0030101622, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031338306, g: 0.0040730955, b: 0.0031338306, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -659,6 +659,9 @@ MonoBehaviour:
   speed: 0.1
   maxSpeed: 2
   movement: {x: 0, y: 0, z: 0}
+  healthGauge: {fileID: 0}
+  shieldGauge: {fileID: 0}
+  energyGauge: {fileID: 0}
 --- !u!54 &387942538
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -730,6 +733,7 @@ GameObject:
   - component: {fileID: 581340017}
   - component: {fileID: 581340019}
   - component: {fileID: 581340018}
+  - component: {fileID: 581340020}
   m_Layer: 5
   m_Name: Portrait
   m_TagString: Untagged
@@ -777,7 +781,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1458719901, guid: b4dff660bf9c789779da4320173c67a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -795,6 +799,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581340016}
   m_CullTransparentMesh: 1
+--- !u!95 &581340020
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581340016}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2682f95e8b517ac3a93d5e1624d06d92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &783809515
 GameObject:
   m_ObjectHideFlags: 0
