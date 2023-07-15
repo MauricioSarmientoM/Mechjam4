@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0031338306, g: 0.0040730955, b: 0.0031338306, a: 1}
+  m_IndirectSpecularColor: {r: 0.0030101622, g: 0.0040730955, b: 0.0030101622, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1390,6 +1390,7 @@ GameObject:
   - component: {fileID: 1198305703}
   - component: {fileID: 1198305702}
   - component: {fileID: 1198305704}
+  - component: {fileID: 1198305705}
   m_Layer: 5
   m_Name: Weapon
   m_TagString: Untagged
@@ -1476,6 +1477,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1198305705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198305700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6db0257afb0c9469d145586f13cf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1198305704}
+  damage: 1
 --- !u!1 &1315705682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1774,7 @@ MonoBehaviour:
   rigid: {fileID: 1350843821}
   speed: 0.1
   maxSpeed: 1
+  life: 2
 --- !u!54 &1350843821
 Rigidbody:
   m_ObjectHideFlags: 0

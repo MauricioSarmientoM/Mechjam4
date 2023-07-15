@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public Image shieldGauge;
     public Image energyGauge;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (player == null)
         {
@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     {
         Movement();
     }
+
     public void Movement()
     {
         movement = 
