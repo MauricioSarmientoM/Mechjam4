@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
 
         if (player.Raycast(ray, out enemy, 500))
         {
-            //enemy.collider.GetComponent<Enemy>().takeDamage(damage);
+            enemy.collider.GetComponent<Enemy>().TakeDamage(damage);
             Debug.Log(enemy.collider.name);
         }
     }

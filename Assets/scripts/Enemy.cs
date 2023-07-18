@@ -17,12 +17,12 @@ public class Enemy : MonoBehaviour
                              Mathf.Clamp(rigid.velocity.y + direction.y, -maxSpeed, maxSpeed),
                              Mathf.Clamp(rigid.velocity.z + direction.z, -maxSpeed, maxSpeed));
 
-        transform.LookAt(Player.player.transform);
+        transform.rotation = Quaternion.LookRotation(transform.position - Player.player.transform.position);
     }
 
-    public void takeDamage(int damage)
+    public void TakeDamage(int damage)
     {
-        life = life - damage;
+        life -= damage;
 
         if (life <= 0)
         {

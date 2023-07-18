@@ -190,7 +190,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,6 +198,69 @@ TextureImporter:
       bones: []
       spriteID: a3b1baf684fd811ff83b7a86c5615ad5
       internalID: 767903237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIstuff_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b0e95f91aa4662782bc62883878c82
+      internalID: 1951991942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIstuff_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 80
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 0, z: 48, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692590d2c410e3e26847329c26cd142a
+      internalID: 678277214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIstuff_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a7867e5328692f92b67fa1410b80cf6
+      internalID: 970178543
       vertices: []
       indices: 
       edges: []
@@ -217,6 +280,9 @@ TextureImporter:
       UIstuff_1: 431469915
       UIstuff_2: 810734350
       UIstuff_3: 767903237
+      UIstuff_4: 1951991942
+      UIstuff_5: 678277214
+      UIstuff_6: 970178543
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -15,8 +15,8 @@ public class MoveWithCursor : MonoBehaviour
     void Update() {
         turn.x += Input.GetAxis("Mouse X") * sensibility;
         turn.y += Input.GetAxis("Mouse Y") * sensibility;
-        transform.parent.localRotation = Quaternion.Euler(0, turn.x, 0);
-        transform.localRotation = Quaternion.Euler(-turn.y, 0, 0);
+        transform.parent.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
+        //transform.localRotation = Quaternion.Euler(-turn.y, 0, 0);
         canvas.anchoredPosition = Vector3.Lerp(canvas.anchoredPosition, -(turn - previousTurn) * deltaMultiplier, smoothFactor * Time.deltaTime);
         //Debug.Log($"Delta: {turn - previousTurn}");
         previousTurn = new(turn.x, turn.y);
