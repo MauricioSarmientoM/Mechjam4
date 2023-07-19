@@ -287,7 +287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 39084811}
   - component: {fileID: 39084812}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 254467321}
   - component: {fileID: 254467320}
   - component: {fileID: 254467319}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: El_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1371,9 +1371,9 @@ MonoBehaviour:
   - {fileID: 1369035768}
   - {fileID: 385443447}
   jet: {fileID: 26712971}
-  health: 0
-  shield: 0
-  energy: 0
+  health: 100
+  shield: 100
+  energy: 100
 --- !u!54 &387942538
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1946,7 +1946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 864189914}
   - component: {fileID: 864189915}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2324,7 +2324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1127816367}
   - component: {fileID: 1127816368}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2521,6 +2521,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1198305704}
   damage: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!1 &1315705682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,7 +2697,7 @@ GameObject:
   - component: {fileID: 1350843820}
   - component: {fileID: 1350843821}
   - component: {fileID: 1350843822}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: El_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3016,7 +3019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1477812529}
   - component: {fileID: 1477812530}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3515,7 +3518,7 @@ GameObject:
   - component: {fileID: 1934173780}
   - component: {fileID: 1934173779}
   - component: {fileID: 1934173778}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: El_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3886,7 +3889,7 @@ GameObject:
   - component: {fileID: 2046345529}
   - component: {fileID: 2046345528}
   - component: {fileID: 2046345527}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: El_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

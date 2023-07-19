@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     public Animator animator;
     public int damage;
     private Collider player;
+    public LayerMask layerMask;
     private void Start() 
     {
         player = Player.player.GetComponent<Collider>();
@@ -27,13 +28,9 @@ public class Weapon : MonoBehaviour
 
     public void Revolver()
     {
-        RaycastHit enemy;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (player.Raycast(ray, out enemy, 500))
-        {
-            enemy.collider.GetComponent<Enemy>().TakeDamage(damage);
-            Debug.Log(enemy.collider.name);
+        RaycastHit[] enemy = Physics.RaycastAll(player.transform.position, player.transform.forward, 500, layerMask);
+        if (enemy.Length > 0) {
+            enemy[0].collider.GetComponent<Enemy>()?.TakeDamage(damage);
         }
     }
 }
