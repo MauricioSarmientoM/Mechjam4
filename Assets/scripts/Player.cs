@@ -48,7 +48,6 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift))
             jet.volume = Mathf.Clamp(jet.volume + .02f, 0, .4f);
         else jet.volume = Mathf.Clamp(jet.volume - .04f, 0, .4f);
-            
     }
     public void Movement()
     {
