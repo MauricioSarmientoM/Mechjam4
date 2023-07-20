@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject spawn;
     private Collider player;
     public int amount;
-    private int maxAmount = 10;
+    public int maxAmount = 10;
     private int extra;
     // Start is called before the first frame update
     void Awake()
@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
     void Start(){
         player = Player.player.GetComponent<Collider>();
         StartCoroutine(Spawn());
+        StartCoroutine(Increase());
     }
     IEnumerator Spawn() {
         for ( ; ; ) {
@@ -27,19 +28,20 @@ public class EnemySpawner : MonoBehaviour
                 Enemy enemy = Instantiate(spawn,
                               player.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * 20,
                               Quaternion.identity).GetComponent<Enemy>();
-                enemy.life = 3 + extra;
+                enemy.life = 2 + extra;
                 enemy.maxSpeed = 1 + extra / 10;
-                enemy.damage = 10 + extra;
+                enemy.damage = 10 + extra * 2;
+                enemy.duration = Mathf.Clamp(15 - extra, 5, 100);
                 yield return new WaitForSeconds(.1f);
             }
         }
     }
     IEnumerator Increase() {
-        yield return new WaitForSeconds(35);
+        yield return new WaitForSeconds(5);
         for ( ; ; ) {
             yield return new WaitForSeconds(30);
             extra++;
-            maxAmount++;
+            maxAmount += 5;
         }
     }
 }

@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public int damage;
     public float cooldown;
     public int life;
+    public float duration = 30;
     public Animator animator;
     private Collider player;
     private void Start()
@@ -26,7 +27,8 @@ public class Enemy : MonoBehaviour
                              Mathf.Clamp(rigid.velocity.z + direction.z, -maxSpeed, maxSpeed));
 
         transform.rotation = Quaternion.LookRotation(transform.position - player.transform.position);
-        if (Vector3.Distance(transform.position, player.transform.position) > 30) animator.SetTrigger("Death");
+        duration -= Time.deltaTime;
+        if (Vector3.Distance(transform.position, player.transform.position) > 30 || duration < 0) animator.SetTrigger("Death");
         cooldown -= Time.deltaTime;
         if (Vector3.Distance(transform.position, player.transform.position) < 2 && cooldown < 0) {
             Player.player.TakeDamage(damage);

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108346309524595190}
   - component: {fileID: 1673299416583662878}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 1659214858578808660}
   - component: {fileID: 5765934379857428337}
   - component: {fileID: 3885749207554408680}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,8 +222,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 32768
-  rigid: {fileID: 0}
-  speed: 0
+  rigid: {fileID: 3885749207554408680}
+  speed: 5
 --- !u!54 &3885749207554408680
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -12,14 +12,16 @@ public class Bomb : MonoBehaviour
     public Rigidbody rigid;
     public float speed;
     void Start() {
-        rigid.velocity = Player.player.transform.forward * speed;
+        rigid.velocity = Player.player.transform.forward * speed + transform.parent.GetComponent<Rigidbody>().velocity;
+        transform.parent = null;
     }
     private void FixedUpdate() {
         timer -= Time.deltaTime;
+        if (timer < 0) Explode();
         transform.rotation = Quaternion.LookRotation(transform.position - Player.player.transform.position);
     }
     private void OnTriggerEnter(Collider other) {
-        
+        Explode();   
     }
     public void Explode() {
         Destroy(Instantiate(explosion, transform.position, transform.rotation), .5f);

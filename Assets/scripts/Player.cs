@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float maxSpeed;
     public Vector3 movement;
     public static Player player;
+    public GameObject bomb;
     [Header("UI")]
     public Image healthGauge;
     public Image shieldGauge;
@@ -49,6 +50,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
+        if (Input.GetKeyDown(KeyCode.Mouse1) && energy > 33) {
+            Instantiate(bomb, transform);
+            energy -= 33;
+            energyGauge.fillAmount = energy / 100f;
+            energyText.text = $"{energy}";
+        }
     }
     private void FixedUpdate() {
         movementMaster.localRotation = transform.rotation;
@@ -99,7 +106,7 @@ public class Player : MonoBehaviour
         for ( ; ; ) {
             yield return new WaitForSeconds(1);
             shield = Mathf.Clamp(shield + 1, 0, 100);
-            energy = Mathf.Clamp(energy + 3, 0, 100);
+            energy = Mathf.Clamp(energy + 1, 0, 100);
             shieldGauge.fillAmount = shield / 100f;
             shieldText.text = $"{shield}";
             energyGauge.fillAmount = energy / 100f;
