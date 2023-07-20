@@ -24,17 +24,18 @@ public class EnemySpawner : MonoBehaviour
         for ( ; ; ) {
             yield return new WaitForSeconds(5);
             for ( ; amount < maxAmount; amount++) {
-                Enemy asgjksd = Instantiate(spawn,
-                                     player.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * 20,
-                                     Quaternion.identity).GetComponent<Enemy>();
-                asgjksd.life = 3 + extra;
-                asgjksd.maxSpeed = 1 + extra / 10;
+                Enemy enemy = Instantiate(spawn,
+                              player.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * 20,
+                              Quaternion.identity).GetComponent<Enemy>();
+                enemy.life = 3 + extra;
+                enemy.maxSpeed = 1 + extra / 10;
+                enemy.damage = 10 + extra;
                 yield return new WaitForSeconds(.1f);
             }
         }
     }
     IEnumerator Increase() {
-        yield return new WaitForSeconds(45);
+        yield return new WaitForSeconds(35);
         for ( ; ; ) {
             yield return new WaitForSeconds(30);
             extra++;

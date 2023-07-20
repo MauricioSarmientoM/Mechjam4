@@ -28,7 +28,7 @@ public class Weapon : MonoBehaviour
 
     public void Revolver()
     {
-        RaycastHit[] enemy = Physics.RaycastAll(player.transform.position, player.transform.forward, 500, layerMask);
+        RaycastHit[] enemy = Physics.RaycastAll(player.transform.position, player.transform.forward, 20, layerMask);
         if (enemy.Length > 0) {
             enemy[0].collider.GetComponent<Enemy>()?.TakeDamage(damage);
         }

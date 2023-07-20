@@ -125,6 +125,8 @@ MonoBehaviour:
   rigid: {fileID: 6128061216997671115}
   speed: 0.1
   maxSpeed: 1
+  damage: 0
+  cooldown: 2
   life: 100
   animator: {fileID: 1475650638105920868}
 --- !u!135 &4414193709785703949

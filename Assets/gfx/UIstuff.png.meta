@@ -253,7 +253,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,6 +261,27 @@ TextureImporter:
       bones: []
       spriteID: 3a7867e5328692f92b67fa1410b80cf6
       internalID: 970178543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIstuff_7
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 400
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 16, y: 16, z: 16, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c97de93bb8e5de0f907d965d56c2f13
+      internalID: 1005445614
       vertices: []
       indices: 
       edges: []
@@ -283,6 +304,7 @@ TextureImporter:
       UIstuff_4: 1951991942
       UIstuff_5: 678277214
       UIstuff_6: 970178543
+      UIstuff_7: 1005445614
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

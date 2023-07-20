@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 public class Player : MonoBehaviour
 {
     public Rigidbody rigid;
@@ -11,15 +12,22 @@ public class Player : MonoBehaviour
     public Image healthGauge;
     public Image shieldGauge;
     public Image energyGauge;
+    public Text healthText;
+    public Text shieldText;
+    public Text energyText;
     public RectTransform movementMaster;
     public Image[] movementIndicator;
+    public Image blindness;
+    public Animator portrait;
     [Header("SFX")]
     public AudioSource jet;
+    public AudioLowPassFilter ost;
+    //public AudioSource tinnitus;
     [Header("Stats")]
     public int health;
     public int shield;
     public int energy;
-    // Start is called before the first frame update
+    public int points;
     void Awake()
     {
         if (player == null)
@@ -31,7 +39,12 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    private void Start() {
+        StartCoroutine(Recharge());
+        healthText.text = $"{health}";
+        shieldText.text = $"{shield}";
+        energyText.text = $"{energy}";
+    }
     // Update is called once per frame
     void Update()
     {
@@ -64,5 +77,33 @@ public class Player : MonoBehaviour
                              Mathf.Clamp(rigid.velocity.y + movement.y, -maxSpeed, maxSpeed),
                              Mathf.Clamp(rigid.velocity.z + movement.z, -maxSpeed, maxSpeed));
 
+    }
+    public void TakeDamage(int damage)
+    {
+        int shieldBefore = shield;
+        shield = Mathf.Clamp(shield - damage, 0, 100);
+        health = Mathf.Clamp(health - (damage - Mathf.RoundToInt(damage * (shieldBefore / 100f))), 0, 100);
+        //tinnitus.volume = Mathf.Clamp01(.05f - (health / 1000f));
+        blindness.color = new(1, 1, 1, Mathf.Clamp01(1 - (health / 100f)));
+        ost.cutoffFrequency = 100 + (20000 * (health / 100f));
+        healthGauge.fillAmount = health / 100f;
+        healthText.text = $"{health}";
+        shieldGauge.fillAmount = shield / 100f;
+        shieldText.text = $"{shield}";
+        if (health <= 0)
+        {
+            portrait.SetTrigger("Death");
+        }
+    }
+    IEnumerator Recharge() {
+        for ( ; ; ) {
+            yield return new WaitForSeconds(1);
+            shield = Mathf.Clamp(shield + 1, 0, 100);
+            energy = Mathf.Clamp(energy + 3, 0, 100);
+            shieldGauge.fillAmount = shield / 100f;
+            shieldText.text = $"{shield}";
+            energyGauge.fillAmount = energy / 100f;
+            energyText.text = $"{energy}";
+        }
     }
 }
