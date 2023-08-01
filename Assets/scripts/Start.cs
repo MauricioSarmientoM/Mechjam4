@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class Start : MonoBehaviour
 {
     public Animator fadeOutAnimator;
@@ -11,11 +10,7 @@ public class Start : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return)) {
             fadeOutAnimator.SetTrigger("Fade");
-            StartCoroutine(ChangeScene());
+            StartCoroutine(GameManager.gameManager.ChangeScene(scene, 5));
         }
-    }
-    IEnumerator ChangeScene() {
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(scene);
     }
 }

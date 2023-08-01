@@ -29,8 +29,11 @@ public class Player : MonoBehaviour
     public int shield;
     public int energy;
     public int points;
+    public float time = 0;
+    public bool death = false;
     void Awake()
     {
+        //SingleTon
         if (player == null)
         {
             player = this;
@@ -49,25 +52,40 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
-        if (Input.GetKeyDown(KeyCode.Mouse1) && energy > 33) {
-            Instantiate(bomb, transform);
-            energy -= 33;
-            energyGauge.fillAmount = energy / 100f;
-            energyText.text = $"{energy}";
+        if (! death)
+        {
+            Movement();
+            if (Input.GetKeyDown(KeyCode.Mouse1) && energy > 33) {
+                Instantiate(bomb, transform);
+                energy -= 33;
+                energyGauge.fillAmount = energy / 100f;
+                energyText.text = $"{energy}";
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                StartCoroutine(GameManager.gameManager.ChangeScene(0, 0));
+            }
         }
     }
     private void FixedUpdate() {
-        movementMaster.localRotation = transform.rotation;
-        movementIndicator[0].fillAmount = Mathf.Clamp(rigid.velocity.y / maxSpeed, 0, 1);
-        movementIndicator[1].fillAmount = -Mathf.Clamp(rigid.velocity.y / maxSpeed, -1, 0);
-        movementIndicator[2].fillAmount = Mathf.Clamp(rigid.velocity.x / maxSpeed, 0, 1);
-        movementIndicator[3].fillAmount = -Mathf.Clamp(rigid.velocity.x / maxSpeed, -1, 0);
-        movementIndicator[4].fillAmount = Mathf.Clamp(rigid.velocity.x / maxSpeed, 0, 1);
-        movementIndicator[5].fillAmount = -Mathf.Clamp(rigid.velocity.x / maxSpeed, -1, 0);
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift))
-            jet.volume = Mathf.Clamp(jet.volume + .02f, 0, .4f);
-        else jet.volume = Mathf.Clamp(jet.volume - .04f, 0, .4f);
+        if (! death)
+        {
+            movementMaster.localRotation = transform.rotation;
+            movementIndicator[0].fillAmount = Mathf.Clamp(rigid.velocity.y / maxSpeed, 0, 1);
+            movementIndicator[1].fillAmount = -Mathf.Clamp(rigid.velocity.y / maxSpeed, -1, 0);
+            movementIndicator[2].fillAmount = Mathf.Clamp(rigid.velocity.x / maxSpeed, 0, 1);
+            movementIndicator[3].fillAmount = -Mathf.Clamp(rigid.velocity.x / maxSpeed, -1, 0);
+            movementIndicator[4].fillAmount = Mathf.Clamp(rigid.velocity.x / maxSpeed, 0, 1);
+            movementIndicator[5].fillAmount = -Mathf.Clamp(rigid.velocity.x / maxSpeed, -1, 0);
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift))
+                jet.volume = Mathf.Clamp(jet.volume + .02f, 0, .4f);
+            else jet.volume = Mathf.Clamp(jet.volume - .04f, 0, .4f);
+
+            time += Time.deltaTime;
+        }
     }
     public void Movement()
     {
@@ -99,7 +117,7 @@ public class Player : MonoBehaviour
         shieldText.text = $"{shield}";
         if (health <= 0)
         {
-            portrait.SetTrigger("Death");
+            Death();
         }
     }
     IEnumerator Recharge() {
@@ -112,5 +130,11 @@ public class Player : MonoBehaviour
             energyGauge.fillAmount = energy / 100f;
             energyText.text = $"{energy}";
         }
+    }
+
+    void Death()
+    {
+        portrait.SetTrigger("Death");
+        death = true;
     }
 }
